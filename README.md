@@ -32,6 +32,18 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [x] Convert `useWindowWidth` hook to ContextAPI. Declare the ContextAPI globally and access the `isSmallerDevice` property.
 
 
+
+## Submission
+- Create a new public repository in your github account
+
+- Push the changes from your local to the new repo on GitHub.
+
+- Update the readme by putting a check mark against the tasks you have completed. If you have not completed all the tasks, make sure to tick all the relevant ones. 
+
+- Open a pull request from "your_name_vidyalai" to "master" in your repo and  
+Fill [this form](https://docs.google.com/forms/d/e/1FAIpQLSeACdInJitqQ8hncrJdsTYEXVuts0Rb_WlMhLihXz06MTFmwA/viewform) with a link to the pull request. 
+
+
 ## Evaluation Criteria
 - Clarity and consistency of naming conventions.
 - Effectiveness of code modularization.
