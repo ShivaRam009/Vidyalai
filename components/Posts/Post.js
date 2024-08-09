@@ -63,6 +63,42 @@ const NextButton = styled(Button)`
   right: 10px;
 `;
 
+const UserInfo = styled.div(() => ({
+  display: 'flex',
+  alignItems: 'center',
+  padding: '10px',
+  backgroundColor: '#f9f9f9',
+}));
+
+const UserInitials = styled.div(() => ({
+  width: '40px',
+  height: '40px',
+  borderRadius: '50%',
+  backgroundColor: '#333',  // Darkened background color
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '16px',
+  fontWeight: 'bold',
+  color: '#fff',
+  marginRight: '10px',
+}));
+
+const UserName = styled.div(() => ({
+  display: 'flex',
+  flexDirection: 'column',
+}));
+
+const UserNameText = styled.div(() => ({
+  fontWeight: 'bold',
+  fontSize: '16px',
+}));
+
+const UserEmail = styled.div(() => ({
+  fontSize: '14px',
+  color: '#666',
+}));
+
 const Post = ({ post }) => {
   const carouselRef = useRef(null);
 
@@ -86,6 +122,13 @@ const Post = ({ post }) => {
 
   return (
     <PostContainer>
+      <UserInfo>
+        <UserInitials>{post.user.initials}</UserInitials>
+        <UserName>
+          <UserNameText>{post.user.name}</UserNameText>
+          <UserEmail>{post.user.email}</UserEmail>
+        </UserName>
+      </UserInfo>
       <CarouselContainer>
         <Carousel ref={carouselRef}>
           {post.images.map((image, index) => (
@@ -107,12 +150,17 @@ const Post = ({ post }) => {
 
 Post.propTypes = {
   post: PropTypes.shape({
-    content: PropTypes.any,
-    images: PropTypes.shape({
-      map: PropTypes.func,
+    title: PropTypes.string,
+    body: PropTypes.string,
+    images: PropTypes.arrayOf(PropTypes.shape({
+      url: PropTypes.string,
+    })),
+    user: PropTypes.shape({
+      initials: PropTypes.string,
+      name: PropTypes.string,
+      email: PropTypes.string,
     }),
-    title: PropTypes.any,
-  }),
+  }).isRequired,
 };
 
 export default Post;
